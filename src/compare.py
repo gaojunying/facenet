@@ -53,7 +53,10 @@ def main(args):
 
             # Run forward pass to calculate embeddings
             feed_dict = { images_placeholder: images, phase_train_placeholder:False }
+            import time
+            tic =time.time()
             emb = sess.run(embeddings, feed_dict=feed_dict)
+            print("elapsed:%f"%(time.time()-tic))
             
             nrof_images = len(args.image_files)
 
